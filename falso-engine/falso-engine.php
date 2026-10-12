@@ -81,3 +81,11 @@ final class Plugin {
 }
 
 Plugin::get_instance();
+
+// Automatically flush rewrite rules once after activation if claims rule is missing
+add_action( 'init', function() {
+	if ( ! get_option( 'falso_rewrite_flushed' ) ) {
+		flush_rewrite_rules( false );
+		update_option( 'falso_rewrite_flushed', '1' );
+	}
+}, 99 );

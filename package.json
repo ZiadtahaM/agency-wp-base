@@ -1,0 +1,26 @@
+{
+  "name": "agency-wp-base",
+  "version": "1.0.0",
+  "description": "Agency base template for premium bilingual WordPress projects",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:pstack": "node tools/cli/verify-golden-path.js",
+    "wp-env": "wp-env",
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "env:clean": "wp-env clean all",
+    "env:seed": "node ./scripts/seed-database.js",
+    "lint:js": "wp-scripts lint-js theme/src plugin/src",
+    "lint:css": "wp-scripts lint-style theme/**/*.css",
+    "test:e2e": "playwright test",
+    "test:a11y": "playwright test tests/e2e/accessibility.spec.js",
+    "test:ci": "playwright test --reporter=github"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@playwright/test": "^1.49.0",
+    "@wordpress/env": "^10.16.0",
+    "@wordpress/scripts": "^30.12.0"
+  }
+}

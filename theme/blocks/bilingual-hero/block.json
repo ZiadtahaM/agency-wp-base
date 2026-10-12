@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "agency/bilingual-hero",
+  "version": "1.0.0",
+  "title": "Bilingual Hero Section",
+  "category": "design",
+  "icon": "cover-image",
+  "description": "High-impact editorial hero block with native RTL support, fluid typography, and localized call-to-actions.",
+  "keywords": ["hero", "bilingual", "banner", "arabic"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "anchor": true,
+    "align": ["full", "wide"],
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "style": "file:./style.css"
+}

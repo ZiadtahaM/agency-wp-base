@@ -1,0 +1,21 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="translate">hero_badge</custom-field>
+        <custom-field action="translate">hero_title</custom-field>
+        <custom-field action="translate">hero_lead</custom-field>
+        <custom-field action="translate">primary_btn_text</custom-field>
+        <custom-field action="translate">primary_btn_url</custom-field>
+        <custom-field action="copy">whatsapp_number</custom-field>
+    </custom-fields>
+    <custom-types>
+        <custom-type action="translate">product</custom-type>
+        <custom-type action="translate">falso_claim</custom-type>
+        <custom-type action="translate">falso_investigation</custom-type>
+    </custom-types>
+    <taxonomies>
+        <taxonomy action="translate">product_cat</taxonomy>
+        <taxonomy action="translate">product_tag</taxonomy>
+        <taxonomy action="translate">falso_verdict</taxonomy>
+        <taxonomy action="translate">falso_region</taxonomy>
+    </taxonomies>
+</wpml-config>

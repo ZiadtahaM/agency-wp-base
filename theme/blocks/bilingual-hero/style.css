@@ -1,0 +1,84 @@
+.agency-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 70vh;
+  padding-block: var(--wp--preset--spacing--50, 4rem);
+  padding-inline: var(--wp--preset--spacing--30, 1.5rem);
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--primary);
+  overflow: hidden;
+}
+
+.agency-hero__container {
+  max-width: var(--wp--style--global--wide-size, 1200px);
+  margin-inline: auto;
+  width: 100%;
+}
+
+.agency-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.35rem;
+  padding-inline: 0.85rem;
+  background-color: var(--wp--preset--color--accent);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: 600;
+  margin-bottom: var(--wp--preset--spacing--20, 1rem);
+}
+
+.agency-hero__title {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--wp--preset--spacing--30, 1.5rem);
+  max-width: 20ch;
+}
+
+.agency-hero__lead {
+  font-size: var(--wp--preset--font-size--large);
+  line-height: 1.6;
+  color: var(--wp--preset--color--muted);
+  max-width: 54ch;
+  margin-bottom: var(--wp--preset--spacing--40, 2rem);
+}
+
+.agency-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.agency-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-block: 0.85rem;
+  padding-inline: 1.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.agency-hero__btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.agency-hero__btn--primary {
+  background-color: var(--wp--preset--color--accent);
+  color: #ffffff;
+}
+
+.agency-hero__btn--whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+}

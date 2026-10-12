@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "agency/art-visualizer",
+  "version": "1.0.0",
+  "title": "Interactive Art & Frame Visualizer",
+  "category": "woocommerce",
+  "icon": "format-image",
+  "description": "Interactive wall preview block allowing real-time dimension and frame toggling without page reload.",
+  "keywords": ["visualizer", "wall-art", "frame", "canvas", "preview"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "anchor": true,
+    "align": ["wide", "full"],
+    "spacing": { "padding": true, "margin": true }
+  },
+  "style": "file:./style.css",
+  "script": "file:./view.js"
+}

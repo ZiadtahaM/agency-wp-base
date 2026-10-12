@@ -1,0 +1,79 @@
+name: Agency Base CI Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-php:
+    name: PHPCS Sniffs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PHP CodeSniffer
+        run: composer run lint:php
+
+  lint-assets:
+    name: Asset Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Lint JavaScript
+        run: npm run lint:js --if-present
+
+      - name: Lint CSS
+        run: npm run lint:css --if-present
+
+  e2e-and-a11y:
+    name: wp-env Playwright & Axe Scans
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Start wp-env
+        run: npx wp-env start
+
+      - name: Seed Database
+        run: npm run env:seed --if-present
+
+      - name: Run Playwright Test Suite
+        run: npm run test:ci
+        env:
+          WP_BASE_URL: http://localhost:8888

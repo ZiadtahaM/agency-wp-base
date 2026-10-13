@@ -1,0 +1,143 @@
+<!-- wp:template-part {"slug":"header","theme":"agency-base-theme"} /-->
+
+<main class="falso-container" style="max-width:850px; padding-top:2.5rem;">
+  <div style="text-align:center; margin-bottom:2.5rem;">
+    <div class="hero-pill" style="margin-bottom:1rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>بوابة البلاغات والمساهمة المجتمعية</span>
+    </div>
+    <h1 style="font-size:2.4rem; font-weight:800; color:#fff; margin:0 0 0.75rem;">تقديم بلاغ عن شائعة أو خبر مشبوه</h1>
+    <p style="color:#94a3b8; font-size:1.05rem; max-width:620px; margin:0 auto; line-height:1.7;">
+      رأيت منشوراً مشكوكاً في أمره، وثيقة مزورة، أو تسجيلاً صوتياً مجهول المصدر؟ أرسل التفاصيل وسيقوم فريق التحقق الرقمي بفحصه ونشر النتيجة للمجتمع.
+    </p>
+  </div>
+
+  <div class="submission-wrapper">
+    <div id="falso-alert-success" class="alert-box alert-success">
+      <div style="display:flex; align-items:center; gap:0.6rem; font-weight:700; margin-bottom:0.35rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span>تم استلام بلاغك بنجاح!</span>
+      </div>
+      <p id="falso-success-msg" style="margin:0; font-size:0.92rem;">
+        تم تسجيل الادعاء في قاعدة بيانات الرصد الميداني برقم تذكرة وسيتولى فريق التحقق فحصه فوراً.
+      </p>
+    </div>
+
+    <div id="falso-alert-error" class="alert-box alert-error">
+      <div style="display:flex; align-items:center; gap:0.6rem; font-weight:700; margin-bottom:0.35rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>عذراً، حدث خطأ أثناء الإرسال</span>
+      </div>
+      <p id="falso-error-msg" style="margin:0; font-size:0.92rem;"></p>
+    </div>
+
+    <form id="falso-submission-form">
+      <div class="form-group">
+        <label class="form-label" for="claim-text">
+          نص الادعاء أو الشائعة المرصودة <span class="req">*</span>
+        </label>
+        <textarea id="claim-text" class="form-control" placeholder="اكتب نص الخبر كما ورد في المنشور أو تلخيص ما يتم تداوله بدقة..." required></textarea>
+        <div class="form-help">يُرجى كتابة النص بدقة لتسهيل البحث العكسي والمطابقة.</div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-group">
+          <label class="form-label" for="source-url">رابط المنشور أو الحساب المروج (اختياري)</label>
+          <input type="url" id="source-url" class="form-control" placeholder="https://facebook.com/... أو رابط تليغرام" />
+          <div class="form-help">يساعدنا في أرشفة المنشور قبل حذفه أو تعديله.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="claim-type">
+            نوع التضليل المشتبه به <span class="req">*</span>
+          </label>
+          <select id="claim-type" class="form-control" required>
+            <option value="fabricated_news">خبر مفبرك / وثيقة مزيفة</option>
+            <option value="disinformation">معلومات مضللة خارج السياق</option>
+            <option value="hate_speech">خطاب كراهية أو تحريض جهوي</option>
+            <option value="impersonation">انتحال صفة مؤسسة رسمية</option>
+          </select>
+          <div class="form-help">اختر التصنيف الأقرب لطبيعة المحتوى.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="evidence-note">ملاحظات إضافية أو أدلة تملكها (اختياري)</label>
+        <textarea id="evidence-note" class="form-control" style="min-height:90px;" placeholder="أي تفاصيل تود إضافتها: موقع التقاط الصورة، شهود عيان، مصدر رسمي ينفي..."></textarea>
+      </div>
+
+      <div class="form-group" style="margin-top:2rem;">
+        <button type="submit" id="submit-btn" class="btn-submit-form">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          <span id="submit-btn-text">إرسال الادعاء لفريق التحقق الفوري</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('falso-submission-form');
+  const alertSuccess = document.getElementById('falso-alert-success');
+  const alertError = document.getElementById('falso-alert-error');
+  const successMsg = document.getElementById('falso-success-msg');
+  const errorMsg = document.getElementById('falso-error-msg');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitBtnText = document.getElementById('submit-btn-text');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    alertSuccess.style.display = 'none';
+    alertError.style.display = 'none';
+
+    const claimText = document.getElementById('claim-text').value.trim();
+    const sourceUrl = document.getElementById('source-url').value.trim();
+    const claimType = document.getElementById('claim-type').value;
+    const evidenceNote = document.getElementById('evidence-note').value.trim();
+
+    if (!claimText) {
+      errorMsg.textContent = 'نص الادعاء مطلوب للإرسال.';
+      alertError.style.display = 'block';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtnText.textContent = 'جاري تسجيل البلاغ في المنظومة...';
+
+    try {
+      const response = await fetch('/wp-json/falso/v1/claims/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          claim_text: claimText,
+          source_url: sourceUrl || undefined,
+          claim_type: claimType,
+          evidence_note: evidenceNote || undefined
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        successMsg.innerHTML = `تم استلام الادعاء بنجاح (رقم التذكرة: <strong>#CLM-${data.claim_id}</strong>). شكراً لمساهمتك في حماية المجتمع الليبي من الشائعات.`;
+        alertSuccess.style.display = 'block';
+        form.reset();
+      } else {
+        errorMsg.textContent = data.message || 'حدث خطأ أثناء حفظ البلاغ. يُرجى المحاولة لاحقاً.';
+        alertError.style.display = 'block';
+      }
+    } catch (err) {
+      errorMsg.textContent = 'تعذر الاتصال بالخادم. تأكد من اتصال الإنترنت.';
+      alertError.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtnText.textContent = 'إرسال الادعاء لفريق التحقق الفوري';
+    }
+  });
+});
+</script>
+
+<!-- wp:template-part {"slug":"footer","theme":"agency-base-theme"} /-->

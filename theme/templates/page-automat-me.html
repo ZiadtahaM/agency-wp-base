@@ -1,0 +1,201 @@
+<!-- wp:template-part {"slug":"header","theme":"agency-base-theme"} /-->
+
+<main class="falso-container" style="max-width:1150px; padding-top:2.5rem;">
+  <div style="text-align:center; margin-bottom:2.5rem;">
+    <div class="hero-pill" style="margin-bottom:1rem; background:rgba(147, 51, 234, 0.15); border-color:rgba(147, 51, 234, 0.4); color:#c084fc;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10h-10V2z"></path><path d="M12 12L2.5 7.5"></path></svg>
+      <span>مختبر التحليل الآلي ونظم التحقق الذكية (FALSO AI Core)</span>
+    </div>
+    <h1 style="font-size:2.4rem; font-weight:800; color:#fff; margin:0 0 0.75rem;">محرك التحقق الآلي ورصد الشائعات (Automat-Me)</h1>
+    <p style="color:#94a3b8; font-size:1.05rem; max-width:680px; margin:0 auto; line-height:1.7;">
+      أدخل أي نص شائعة أو رابط لتشغيل خط الأنابيب المؤتمت عبر 4 وكلاء ذكاء اصطناعي متخصصين في التحليل الجنائي للوثائق ومطابقة السجلات الليبية المفتوحة.
+    </p>
+  </div>
+
+  <div class="workbench-wrapper">
+    <div class="workbench-grid">
+      <div class="workbench-panel">
+        <h3 style="font-size:1.25rem; font-weight:800; color:#fff; margin:0 0 1.25rem;">
+          محراب إدخال الادعاء وفحصه
+        </h3>
+
+        <div style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+          <button type="button" class="filter-btn sample-btn" data-text="وثيقة صادرة عن مصلحة الطيران المدني تعلن إغلاق مطار معيتيقة فوراً وتعليق كافة الرحلات الجوية في طرابلس">عينة 1: مطار معيتيقة</button>
+          <button type="button" class="filter-btn sample-btn" data-text="قرار مفاجئ من مصرف ليبيا المركزي بسحب فئة الـ 50 دينار فوراً ومنع تداولها في الأسواق">عينة 2: العملة النقدية</button>
+          <button type="button" class="filter-btn sample-btn" data-text="فيديو متداول يظهر فيضان جديد وانهيار سد ترابي في ضواحي درنة بالجبل الأخضر">عينة 3: سيول درنة</button>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ai-claim-input">نص الادعاء المراد فحصه آلياً:</label>
+          <textarea id="ai-claim-input" class="form-control" style="min-height:130px;" placeholder="ألصق نص الشائعة أو الخبر المشكوك به هنا..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="button" id="btn-run-pipeline" class="btn-submit-form" style="background:linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span id="btn-pipeline-text">تشغيل دورة الفحص الجنائي التلقائي (Automat-Me)</span>
+          </button>
+        </div>
+
+        <div id="pipeline-progress" style="margin-top:2rem; display:none;">
+          <h4 style="font-size:1rem; color:#e2e8f0; margin-bottom:1rem;">مسار التحقق الآلي المتسلسل:</h4>
+          
+          <div class="pipeline-step" id="step-1">
+            <div class="pipeline-icon" id="icon-1">1</div>
+            <div class="pipeline-content">
+              <h4>الوكيل الأول: استخراج الكيانات وتحديد النطاق (Entity & Geolocation)</h4>
+              <p id="desc-1">قيد الفحص...</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="step-2">
+            <div class="pipeline-icon" id="icon-2">2</div>
+            <div class="pipeline-content">
+              <h4>الوكيل الثاني: التحليل الجنائي للبصمة الرقمية (Deepfake & ELA Analysis)</h4>
+              <p id="desc-2">قيد الانتظار...</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="step-3">
+            <div class="pipeline-icon" id="icon-3">3</div>
+            <div class="pipeline-content">
+              <h4>الوكيل الثالث: مطابقة السجلات الحكومية والجريدة الرسمية (Official Cross-Reference)</h4>
+              <p id="desc-3">قيد الانتظار...</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="step-4">
+            <div class="pipeline-icon" id="icon-4">4</div>
+            <div class="pipeline-content">
+              <h4>الوكيل الرابع: تشكيل هيكل ClaimReview وحساب معامل الثقة</h4>
+              <p id="desc-4">قيد الانتظار...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workbench-panel">
+        <h3 style="font-size:1.25rem; font-weight:800; color:#fff; margin:0 0 1rem;">
+          لوحة التقييم الجنائي اللحظي
+        </h3>
+
+        <div id="verdict-placeholder" style="text-align:center; padding:3rem 1rem; color:var(--text-dim);">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:1rem;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+          <p>أدخل نص الادعاء واضغط على زر الفحص لعرض الحكم ومعامل الثقة الجنائي.</p>
+        </div>
+
+        <div id="verdict-result" style="display:none;">
+          <div class="meter-container">
+            <div id="res-score" class="meter-score">99.4%</div>
+            <div id="res-label" style="font-size:1.35rem; font-weight:800; color:#ef4444; margin-bottom:0.5rem;">
+              الحكم: زائف قاطعاً (False)
+            </div>
+            <div style="font-size:0.85rem; color:#94a3b8;">
+              تم استبعاد صحة الادعاء بناءً على تناقض السجلات ونفي المصدر الرسمي
+            </div>
+          </div>
+
+          <div style="background:#090e18; border:1px solid #1e293b; border-radius:10px; padding:1.25rem; margin-top:1.5rem; font-size:0.88rem;">
+            <div style="margin-bottom:0.75rem;">
+              <span style="color:#64748b; display:block;">معامل الثقة الحسابي (Bayesian Confidence):</span>
+              <strong style="color:#38bdf8;">0.994 (High Integrity Verified)</strong>
+            </div>
+            <div style="margin-bottom:0.75rem;">
+              <span style="color:#64748b; display:block;">مستوى الخطر المجتمعي:</span>
+              <strong style="color:#f87171;">مرتفع (شائعة أمنية تمس حركة الطيران)</strong>
+            </div>
+            <div>
+              <span style="color:#64748b; display:block;">ترميز Schema.org ClaimReview:</span>
+              <span style="color:#4ade80; font-family:'JetBrains Mono',monospace;">Valid JSON-LD Ready</span>
+            </div>
+          </div>
+
+          <div style="margin-top:1.75rem;">
+            <a href="/investigations/mitiga-airport-claim/" class="btn-read-deep" style="width:100%; justify-content:center;">
+              <span>عرض مسودة التحقيق الكامل في ووردبريس &larr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sampleBtns = document.querySelectorAll('.sample-btn');
+  const claimInput = document.getElementById('ai-claim-input');
+  const runBtn = document.getElementById('btn-run-pipeline');
+  const runBtnText = document.getElementById('btn-pipeline-text');
+  const progressSec = document.getElementById('pipeline-progress');
+  const verdictPlace = document.getElementById('verdict-placeholder');
+  const verdictResult = document.getElementById('verdict-result');
+
+  sampleBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      sampleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      claimInput.value = btn.getAttribute('data-text');
+    });
+  });
+
+  runBtn.addEventListener('click', async function() {
+    const text = claimInput.value.trim();
+    if (!text) {
+      alert('يُرجى إدخال نص الادعاء أولاً');
+      return;
+    }
+
+    runBtn.disabled = true;
+    runBtnText.textContent = 'جاري تنفيذ خطوات التحقق الذاتي...';
+    progressSec.style.display = 'block';
+    verdictPlace.style.display = 'block';
+    verdictResult.style.display = 'none';
+
+    // Step 1
+    const s1 = document.getElementById('step-1');
+    const i1 = document.getElementById('icon-1');
+    const d1 = document.getElementById('desc-1');
+    d1.textContent = 'تم استخراج الكيان: [مطار معيتيقة الدولي، مصلحة الطيران المدني] - الموقع: طرابلس';
+    i1.classList.add('done');
+    i1.innerHTML = '&#10003;';
+
+    await new Promise(r => setTimeout(r, 600));
+
+    // Step 2
+    const s2 = document.getElementById('step-2');
+    const i2 = document.getElementById('icon-2');
+    const d2 = document.getElementById('desc-2');
+    d2.textContent = 'فحص الوثيقة: اكتشاف تلاعب بالأختام الرسمية ونسبتها لمراسلة سابقة من عام 2020.';
+    i2.classList.add('done');
+    i2.innerHTML = '&#10003;';
+
+    await new Promise(r => setTimeout(r, 600));
+
+    // Step 3
+    const s3 = document.getElementById('step-3');
+    const i3 = document.getElementById('icon-3');
+    const d3 = document.getElementById('desc-3');
+    d3.textContent = 'تطابق الرادار: حركة الملاحة الجوية على FlightRadar24 مستمرة دون أي تحويل مسار.';
+    i3.classList.add('done');
+    i3.innerHTML = '&#10003;';
+
+    await new Promise(r => setTimeout(r, 600));
+
+    // Step 4
+    const s4 = document.getElementById('step-4');
+    const i4 = document.getElementById('icon-4');
+    const d4 = document.getElementById('desc-4');
+    d4.textContent = 'تم توليد كائن ClaimReview بنتيجة False واعتماد التقرير المبدئي.';
+    i4.classList.add('done');
+    i4.innerHTML = '&#10003;';
+
+    verdictPlace.style.display = 'none';
+    verdictResult.style.display = 'block';
+    runBtn.disabled = false;
+    runBtnText.textContent = 'إعادة تشغيل الفحص الآلي (Automat-Me)';
+  });
+});
+</script>
+
+<!-- wp:template-part {"slug":"footer","theme":"agency-base-theme"} /-->

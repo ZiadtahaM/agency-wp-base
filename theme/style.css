@@ -9,3 +9,175 @@ Tested up to: 6.7
 Requires PHP: 8.0
 Text Domain: agency-base
 */
+
+:root {
+  --bg: #090d16;
+  --card-bg: #111827;
+  --border: #1f2937;
+  --accent: #2563eb;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --text: #f9fafb;
+  --text-muted: #9ca3af;
+}
+
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif;
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  line-height: 1.6;
+  direction: rtl;
+}
+
+header.wp-block-group {
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+}
+
+.wp-block-site-title a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.falso-single-claim,
+.falso-single-investigation {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 900px;
+  margin: 2.5rem auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.wp-block-post-title {
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+.falso-meta-bar {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.badge-verdict {
+  display: inline-block;
+  background: var(--danger);
+  color: #ffffff;
+  font-weight: 800;
+  padding: 0.35rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.badge-verdict--fake {
+  background: var(--danger);
+}
+
+.badge-verdict--true {
+  background: var(--success);
+}
+
+.evidence-box {
+  background: #1e293b;
+  border-inline-start: 4px solid var(--accent);
+  padding: 1.25rem;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+}
+
+.evidence-box ul {
+  padding-inline-start: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* FALSO Citizen Submission Form Styles */
+.falso-form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.falso-form-card label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.falso-form-card input[type="text"],
+.falso-form-card input[type="url"],
+.falso-form-card textarea,
+.falso-form-card select {
+  width: 100%;
+  padding: 0.85rem;
+  background: #030712;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.falso-form-card button[type="submit"] {
+  background: var(--danger);
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.falso-form-card button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.falso-alert {
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.falso-alert--success {
+  background: #064e3b;
+  color: #a7f3d0;
+  border: 1px solid #059669;
+}
+
+.falso-alert--error {
+  background: #7f1d1d;
+  color: #fecaca;
+  border: 1px solid #dc2626;
+}
+
+footer.wp-block-group {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}

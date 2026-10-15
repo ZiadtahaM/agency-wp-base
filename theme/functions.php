@@ -41,3 +41,10 @@ function agency_base_enqueue_assets(): void {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'agency_base_enqueue_assets' );
+
+/**
+ * Bootstrap embedded FALSO intelligence and community engine.
+ */
+if ( file_exists( __DIR__ . '/includes/falso-engine/falso-engine.php' ) ) {
+	require_once __DIR__ . '/includes/falso-engine/falso-engine.php';
+}

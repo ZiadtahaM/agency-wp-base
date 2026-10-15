@@ -13,36 +13,18 @@
       "step": "login"
     },
     {
-      "step": "installPlugin",
-      "pluginData": {
-        "resource": "url",
-        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/f9f2afd816b63742f95708672595320507c8795e/falso-engine.zip"
-      },
-      "options": {
-        "activate": false
-      }
-    },
-    {
-      "step": "activatePlugin",
-      "pluginPath": "falso-engine/falso-engine.php"
-    },
-    {
       "step": "installTheme",
       "themeData": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/f9f2afd816b63742f95708672595320507c8795e/agency-base-theme.zip"
+        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/master/agency-base-theme.zip"
       },
       "options": {
-        "activate": false
+        "activate": true
       }
     },
     {
-      "step": "activateTheme",
-      "themeFolderName": "agency-base"
-    },
-    {
       "step": "runPHP",
-      "code": "<?php require '/wordpress/wp-load.php'; require_once ABSPATH . 'wp-admin/includes/plugin.php'; if (!is_plugin_active('falso-engine/falso-engine.php') && file_exists(WP_PLUGIN_DIR . '/falso-engine/falso-engine.php')) { activate_plugin('falso-engine/falso-engine.php'); } if (get_stylesheet() !== 'agency-base') { switch_theme('agency-base'); } update_option('blogname', 'FALSO 2.0 | منصة التحقق الليبية'); update_option('blogdescription', 'المنصة الذكية لرصد وتدقيق الأخبار والمعلومات'); if (!get_page_by_path('sample-investigation', OBJECT, 'falso_investigation')) { $p1 = wp_insert_post(['post_title' => 'حقيقة وثيقة تسريب أسعار الوقود الجديدة في طرابلس', 'post_content' => 'تحقيق تفصيلي يكشف تزييف الوثيقة المنسوبة لوزارة الاقتصاد.', 'post_status' => 'publish', 'post_type' => 'falso_investigation', 'post_name' => 'fuel-subsidy-factcheck']); if ($p1) { update_post_meta($p1, '_falso_verdict', 'fake'); update_post_meta($p1, '_falso_region', 'طرابلس'); update_post_meta($p1, '_falso_claim_summary', 'انتشرت وثيقة عبر فيسبوك تزعم صدور تسعيرة جديدة للوقود.'); } $p2 = wp_insert_post(['post_title' => 'ادعاء إغلاق المجال الجوي في المنطقة الغربية والوسطى', 'post_content' => 'متابعة حركة الملاحة الجوية الرادارية وشهادات مصلحة الطيران المدني.', 'post_status' => 'publish', 'post_type' => 'falso_investigation', 'post_name' => 'airspace-closure-factcheck']); if ($p2) { update_post_meta($p2, '_falso_verdict', 'misleading'); update_post_meta($p2, '_falso_region', 'مصراتة / طرابلس'); update_post_meta($p2, '_falso_claim_summary', 'تداول صور رادارية قديمة بزعم إغلاق المجال الجوي.'); } } flush_rewrite_rules(); ?>"
+      "code": "<?php require '/wordpress/wp-load.php'; update_option('blogname', 'FALSO 2.0 | منصة التحقق الليبية'); update_option('blogdescription', 'المنصة الذكية لرصد وتدقيق الأخبار والمعلومات'); if (!get_page_by_path('sample-investigation', OBJECT, 'falso_investigation')) { $p1 = wp_insert_post(['post_title' => 'حقيقة وثيقة تسريب أسعار الوقود الجديدة في طرابلس', 'post_content' => 'تحقيق تفصيلي يكشف تزييف الوثيقة المنسوبة لوزارة الاقتصاد.', 'post_status' => 'publish', 'post_type' => 'falso_investigation', 'post_name' => 'fuel-subsidy-factcheck']); if ($p1) { update_post_meta($p1, '_falso_verdict', 'fake'); update_post_meta($p1, '_falso_region', 'طرابلس'); update_post_meta($p1, '_falso_claim_summary', 'انتشرت وثيقة عبر فيسبوك تزعم صدور تسعيرة جديدة للوقود.'); } $p2 = wp_insert_post(['post_title' => 'ادعاء إغلاق المجال الجوي في المنطقة الغربية والوسطى', 'post_content' => 'متابعة حركة الملاحة الجوية الرادارية وشهادات مصلحة الطيران المدني.', 'post_status' => 'publish', 'post_type' => 'falso_investigation', 'post_name' => 'airspace-closure-factcheck']); if ($p2) { update_post_meta($p2, '_falso_verdict', 'misleading'); update_post_meta($p2, '_falso_region', 'مصراتة / طرابلس'); update_post_meta($p2, '_falso_claim_summary', 'تداول صور رادارية قديمة بزعم إغلاق المجال الجوي.'); } } flush_rewrite_rules(); ?>"
     }
   ]
 }

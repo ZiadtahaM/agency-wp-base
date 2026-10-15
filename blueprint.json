@@ -1,0 +1,40 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "6.7"
+  },
+  "features": {
+    "networking": true
+  },
+  "steps": [
+    {
+      "step": "login"
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/master/falso-engine.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeZipFile": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/master/agency-base-theme.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require '/wordpress/wp-load.php'; update_option('blogname', 'FALSO 2.0 | منصة التحقق الليبية'); update_option('blogdescription', 'المنصة الذكية لرصد وتدقيق الأخبار والمعلومات'); if (!get_page_by_path('sample-investigation', OBJECT, 'falso_investigation')) { $p1 = wp_insert_post(['post_title' => 'حقيقة وثيقة تسريب أسعار الوقود الجديدة في طرابلس', 'post_content' => 'تحقيق تفصيلي يكشف تزييف الوثيقة المنسوبة لوزارة الاقتصاد.', 'post_status' => 'publish', 'post_type' => 'falso_investigation', 'post_name' => 'fuel-subsidy-factcheck']); if ($p1) { update_post_meta($p1, '_falso_verdict', 'fake'); update_post_meta($p1, '_falso_region', 'طرابلس'); update_post_meta($p1, '_falso_claim_summary', 'انتشرت وثيقة عبر فيسبوك تزعم صدور تسعيرة جديدة للوقود.'); } $p2 = wp_insert_post(['post_title' => 'ادعاء إغلاق المجال الجوي في المنطقة الغربية والوسطى', 'post_content' => 'متابعة حركة الملاحة الجوية الرادارية وشهادات مصلحة الطيران المدني.', 'post_status' => 'publish', 'post_type' => 'falso_investigation', 'post_name' => 'airspace-closure-factcheck']); if ($p2) { update_post_meta($p2, '_falso_verdict', 'misleading'); update_post_meta($p2, '_falso_region', 'مصراتة / طرابلس'); update_post_meta($p2, '_falso_claim_summary', 'تداول صور رادارية قديمة بزعم إغلاق المجال الجوي.'); } } flush_rewrite_rules(); ?>"
+    }
+  ]
+}

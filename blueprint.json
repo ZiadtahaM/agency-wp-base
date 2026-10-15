@@ -16,7 +16,7 @@
       "step": "installPlugin",
       "pluginData": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/master/falso-engine.zip"
+        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/f9f2afd816b63742f95708672595320507c8795e/falso-engine.zip"
       },
       "options": {
         "activate": false
@@ -30,7 +30,7 @@
       "step": "installTheme",
       "themeData": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/master/agency-base-theme.zip"
+        "url": "https://raw.githubusercontent.com/ZiadtahaM/agency-wp-base/f9f2afd816b63742f95708672595320507c8795e/agency-base-theme.zip"
       },
       "options": {
         "activate": false

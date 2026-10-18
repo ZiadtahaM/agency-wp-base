@@ -38,7 +38,8 @@ Text Domain: agency-base
   box-sizing: border-box;
 }
 
-body {
+body,
+.editor-styles-wrapper {
   margin: 0;
   padding: 0;
   background-color: var(--bg-primary) !important;

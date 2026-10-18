@@ -116,7 +116,7 @@ add_action( 'init', 'agency_base_register_post_types' );
  * Register custom blocks from block.json manifests.
  */
 function agency_base_register_blocks(): void {
-	$blocks = array( 'bilingual-hero', 'art-visualizer' );
+	$blocks = array();
 	foreach ( $blocks as $block ) {
 		$block_dir = __DIR__ . '/blocks/' . $block;
 		if ( file_exists( $block_dir . '/block.json' ) ) {
